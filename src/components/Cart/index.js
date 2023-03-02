@@ -1,8 +1,9 @@
-import Header from '../Header'
-import CartListView from '../CartListView'
-
 import CartContext from '../../context/CartContext'
+
+import Header from '../Header'
 import EmptyCartView from '../EmptyCartView'
+import CartListView from '../CartListView'
+import CartSummary from '../CartSummary'
 
 import './index.css'
 
@@ -11,11 +12,7 @@ const Cart = () => (
     {value => {
       const {cartList, removeAllCartItems} = value
       const showEmptyView = cartList.length === 0
-      let total = 0
-      cartList.forEach(eachCartItem => {
-        total += eachCartItem.price * eachCartItem.quantity
-      })
-      const onRemoveAll = () => {
+      const onClickRemoveAllBtn = () => {
         removeAllCartItems()
       }
 
@@ -31,20 +28,12 @@ const Cart = () => (
                 <button
                   type="button"
                   className="remove-all-btn"
-                  onClick={onRemoveAll}
+                  onClick={onClickRemoveAllBtn}
                 >
                   Remove All
                 </button>
                 <CartListView />
-                <div className="summary-container">
-                  <h1 className="total-amt">
-                    Order Total: <span className="amount">Rs {total}/-</span>
-                  </h1>
-                  <p className="total-items">{cartList.length} Items in cart</p>
-                  <button type="button" className="checkout-btn">
-                    Checkout
-                  </button>
-                </div>
+                <CartSummary />
               </div>
             )}
           </div>
@@ -53,4 +42,5 @@ const Cart = () => (
     }}
   </CartContext.Consumer>
 )
+
 export default Cart

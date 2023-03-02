@@ -38,38 +38,21 @@
 }
 
 .remove-all-btn {
-  font-size: 16px;
-  font-weight: 500;
-  font-family: 'Roboto';
+  display: flex;
+  align-self: flex-end;
   color: #0b69ff;
-  border: none;
-  cursor: pointer;
-  background-color: #ffffff;
-  align-self: flex-end;
-}
-.summary-container {
-  align-self: flex-end;
-}
-.total-amt {
-  color: #616e7c;
-  font-size: 20px;
-  margin: 5px;
-}
-.total-quantity {
-  color: #616e7c;
-  font-size: 16px;
-  margin: 5px;
-}
-.amount {
-  color: #171f46;
-}
-.checkout-btn {
-  color: #ffffff;
-  font-size: 16px;
+  background: transparent;
   font-family: 'Roboto';
-  background-color: #0b69ff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
   border: none;
-  border-radius: 5px;
-  padding: 5px;
-  width: 100%;
+  outline: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .remove-all-btn {
+    font-size: 16px;
+  }
 }
